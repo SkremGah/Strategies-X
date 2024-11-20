@@ -750,9 +750,7 @@ if CheckPlace() then
 				task.wait(5)
 				getgenv().OldCorn = LocalPlayer.PlayerGui:WaitForChild("ReactOverridesTopBar"):WaitForChild("Frame"):WaitForChild("items"):WaitForChild("Hexscape Event"):WaitForChild("text").Text
 				StratXLibrary.ReadyState = false
-				if ReplicatedStorage.State.Difficulty.Value == "Hardcore" then
-					return
-				end
+				if LocalPlayer.PlayerGui:WaitForChild("ReactUniversalHotbar"):WaitForChild("Frame"):FindFirstChild("timescale")	~= nil then														
 				local TimeScaleUI = LocalPlayer.PlayerGui:WaitForChild("ReactUniversalHotbar"):WaitForChild("Frame"):WaitForChild("timescale")
 				if UtilitiesConfig.UseTimeScale then
 					if TimeScaleUI:FindFirstChild("Lock") then
@@ -763,6 +761,7 @@ if CheckPlace() then
        					end)
 					end
 				end
+																	end														
 			else
 				prints(`Match {if GetGameState():GetAttribute("Won") then "Won" else "Lose"}`)
 				if AutoSkipCheck then
