@@ -1,1 +1,33 @@
+return function(self, LookVector)
+   local args = {
+	"Troops",
+	"Abilities",
+	"Activate",
+	{
+		Troop = workspace:WaitForChild("Towers"):WaitForChild("Default"),
+		Name = "FPS",
+		Data = {
+			enabled = true
+		}
+	}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+local args = {
+	LookVector
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("GatlingGun"):WaitForChild("ReplicateAimPosition"):FireServer(unpack(args))
+local args = {
+	"Troops",
+	"Abilities",
+	"Activate",
+	{
+		Troop = workspace:WaitForChild("Towers"):WaitForChild("Default"),
+		Name = "FPS",
+		Data = {
+			enabled = false
+		}
+	}
+}
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
 
+end
